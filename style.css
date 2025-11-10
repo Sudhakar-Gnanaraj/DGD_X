@@ -1,0 +1,51 @@
+/* Reset default styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+}
+
+/* Header */
+header {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+/* Section Titles */
+h2 {
+  background-color: black;
+  color: white;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-left: 25px;
+}
+
+/* Layout of image links */
+.link-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.link-row a {
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.link-row a:hover {
+  transform: scale(1.05);
+}
+
+.link-row img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  background-color: black;
+}
