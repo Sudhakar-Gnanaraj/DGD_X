@@ -1,4 +1,4 @@
-// Game data
+// ===== GAME DATA =====
 const games = {
   pong: {
     title: "Pong Casualism",
@@ -23,7 +23,7 @@ const games = {
   }
 };
 
-// Elements
+// ===== ELEMENTS =====
 const modal = document.getElementById("gameModal");
 const gameTitle = document.getElementById("gameTitle");
 const gameDescription = document.getElementById("gameDescription");
@@ -37,40 +37,36 @@ const rightArrow = document.querySelector(".arrow.right");
 let currentScreens = [];
 let currentIndex = 0;
 
-// Open modal
+// ===== OPEN MODAL =====
 document.querySelectorAll(".game-card").forEach(card => {
   card.addEventListener("click", () => {
     const gameKey = card.dataset.game;
     const game = games[gameKey];
-
     if (!game) return;
 
+    // Show modal first
     modal.style.display = "flex";
+
+    // Populate modal data
     gameTitle.textContent = game.title;
     gameDescription.textContent = game.description;
     detailedText.textContent = game.detailed;
     playButton.onclick = () => window.open(game.link, "_blank");
 
+    // Reset carousel
     currentScreens = game.screenshots;
     currentIndex = 0;
     gameImage.src = currentScreens[currentIndex];
 
-    modal.style.display = "flex";
-    gameTitle.textContent = game.title;
-    gameDescription.textContent = game.description;
-    detailedText.textContent = game.detailed;
-    playButton.onclick = () => window.open(game.link, "_blank");
-    currentScreens = game.screenshots;
-    currentIndex = 0;
-    gameImage.src = currentScreens[currentIndex];
-
-    // 🟣 Load Giscus comments
-    loadComments(game.title);
+    // Load comments for this game
+    setTimeout(() => loadComments(game.title), 200);
   });
 });
 
-// Close modal
-closeModal.onclick = () => (modal.style.display = "none");
+// ===== CLOSE MODAL =====
+closeModal.onclick = () => {
+  modal.style.display = "none";
+};
 window.onclick = e => {
   if (e.target === modal) modal.style.display = "none";
 };
@@ -80,37 +76,36 @@ window.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft") prevImage();
 });
 
+// ===== CAROUSEL FUNCTIONS =====
+function nextImage() {
+  if (!currentScreens.length) return;
+  currentIndex = (currentIndex + 1) % currentScreens.length;
+  gameImage.src = currentScreens[currentIndex];
+}
+function prevImage() {
+  if (!currentScreens.length) return;
+  currentIndex = (currentIndex - 1 + currentScreens.length) % currentScreens.length;
+  gameImage.src = currentScreens[currentIndex];
+}
+rightArrow.onclick = nextImage;
+leftArrow.onclick = prevImage;
+
+// ===== GISCUS COMMENTS LOADER =====
 function loadComments(gameTitle) {
   const container = document.getElementById("giscus-container");
-  container.innerHTML = ""; // Clear previous comments
+  container.innerHTML = ""; // Clear old instance
 
   const script = document.createElement("script");
   script.src = "https://giscus.app/client.js";
-  script.setAttribute("data-repo", "Sudhakar-Gnanaraj/DGD_X"); // ← your repo
-  script.setAttribute("data-repo-id", "R_kgDOQSslxg");   // ← from giscus.app
-  script.setAttribute("data-category", "General");         // ← your category
+  script.setAttribute("data-repo", "Sudhakar-Gnanaraj/DGD_X"); // ✅ Your repo
+  script.setAttribute("data-repo-id", "R_kgDOQSslxg");         // ✅ From Giscus setup
+  script.setAttribute("data-category", "General");             // ✅ Category
   script.setAttribute("data-category-id", "DIC_kwDOQSslxs4Cxoz-");
   script.setAttribute("data-mapping", "specific");
-  script.setAttribute("data-term", gameTitle);
+  script.setAttribute("data-term", gameTitle);                 // Use game title as thread
   script.setAttribute("data-theme", "dark");
   script.setAttribute("crossorigin", "anonymous");
   script.async = true;
 
   container.appendChild(script);
 }
-
-// Carousel arrows
-function nextImage() {
-  if (!currentScreens.length) return;
-  currentIndex = (currentIndex + 1) % currentScreens.length;
-  gameImage.src = currentScreens[currentIndex];
-}
-
-function prevImage() {
-  if (!currentScreens.length) return;
-  currentIndex = (currentIndex - 1 + currentScreens.length) % currentScreens.length;
-  gameImage.src = currentScreens[currentIndex];
-}
-
-rightArrow.onclick = nextImage;
-leftArrow.onclick = prevImage;
