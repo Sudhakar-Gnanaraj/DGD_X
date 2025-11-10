@@ -22,7 +22,10 @@ header {
 .logo {
   height: 40px;
   width: 40px;
+  max-width: 60px; /* prevents it from stretching */
+  max-height: 60px;
   object-fit: contain;
+  display: block;
 }
 
 header h1 {
