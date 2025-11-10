@@ -60,23 +60,57 @@ h2 {
   margin: 20px 0;
 }
 
+/* ===== GAME CARD (Main Page) ===== */
 .game-card {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
 }
 
 .game-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
 
+/* Game icon styling */
 .game-card img {
-  width: 180px;
-  height: 180px;
+  width: 120px; /* smaller icons */
+  height: 120px;
   object-fit: cover;
   border-radius: 12px;
   border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
+
+/* Glow effect on hover (icon only) */
+.game-card:hover img {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8),
+              0 0 24px rgba(255, 255, 255, 0.5),
+              0 0 36px rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Game title text */
+.game-card h3 {
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-weight: 800; /* Bold */
+  letter-spacing: 0.5px;
+
+  /* Gradient text */
+  background: linear-gradient(to right, #ffffff, #d9d9d9);
+  background-clip: text;             /* Standard */
+  -webkit-background-clip: text;     /* Safari/Chrome compatibility */
+  -webkit-text-fill-color: transparent; /* Needed for WebKit browsers */
+  color: transparent;                /* Fallback for non-supporting browsers */
+
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover glow (text only slightly glows) */
+.game-card:hover h3 {
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
+
 
 /* ===== MODAL ===== */
 .modal {
@@ -176,7 +210,6 @@ h2 {
   align-items: center;
 }
 
-/* Maintain 16:9 aspect ratio */
 .carousel img {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -245,8 +278,12 @@ h2 {
   }
 
   .game-card img {
-    width: 70%;
-    height: auto;
+    width: 90px;
+    height: 90px;
+  }
+
+  .game-card h3 {
+    font-size: 1.2em;
   }
 
   h1 {
