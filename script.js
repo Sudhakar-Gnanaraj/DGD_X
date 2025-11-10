@@ -5,7 +5,7 @@ const games = {
     link: "https://sudhakar-g.itch.io/pong-casualism",
     description: "A reimagined Pong where randomness and spontaneity redefine the rhythm of play.",
     detailed: "This version of Pong is built around the art philosophy of Casualism — imperfection, randomness, and unexpected outcomes. Each bounce may change color, speed, or shape, forcing players to adapt dynamically. The goal is to embrace unpredictability and fun.",
-    screenshots: ["images/pong1.jpeg", "images/pong2.png", "images/pong3.jpeg"]
+    screenshots: ["images/pong1.png", "images/pong2.png", "images/pong3.png"]
   },
   diwali: {
     title: "Fireworks Across Time",
