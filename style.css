@@ -73,7 +73,7 @@ h2 {
 
 /* Game icon styling */
 .game-card img {
-  width: 120px;
+  width: 120px; /* smaller icons */
   height: 120px;
   object-fit: cover;
   border-radius: 12px;
@@ -92,21 +92,25 @@ h2 {
 /* Game title text */
 .game-card h3 {
   margin-top: 10px;
-  font-size: 1em;
-  font-weight: 800;
+  font-size: 1.em;
+  font-weight: 800; /* Bold */
   letter-spacing: 0.5px;
+
+  /* Gradient text */
   background: linear-gradient(to right, #ffffff, #d9d9d9);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  background-clip: text;             /* Standard */
+  -webkit-background-clip: text;     /* Safari/Chrome compatibility */
+  -webkit-text-fill-color: transparent; /* Needed for WebKit browsers */
+  color: transparent;                /* Fallback for non-supporting browsers */
+
   transition: text-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Hover glow (text) */
+/* Hover glow (text only slightly glows) */
 .game-card:hover h3 {
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
+
 
 /* ===== MODAL ===== */
 .modal {
@@ -117,13 +121,14 @@ h2 {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-
-  /* Prevent body scroll — internal scroll only */
-  overflow: hidden;
+  overflow-y: auto;
+  
 }
 
 .modal-content {
-  background: url("images/header-bg.jpg") no-repeat center center fixed;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("images/header-bg.jpg") no-repeat center center fixed;
   background-size: cover;
   position: relative;
   border-radius: 12px;
@@ -132,9 +137,7 @@ h2 {
   padding: 30px;
   color: white;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-  margin: 40px 0;
-
-  /* NEW: Internal scroll area */
+  margin: 50px 0;
   max-height: 90vh;
   overflow-y: auto;
   scroll-behavior: smooth;
@@ -144,7 +147,7 @@ h2 {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  /*background: rgba(0, 0, 0, 0.85);*/
   border-radius: 12px;
   z-index: 0;
 }
@@ -192,9 +195,9 @@ h2 {
 .play-btn {
   background-color: #e50914;
   border: none;
-  padding: 12px 24px;
+  padding: 24px 42px;
   color: white;
-  font-size: 16px;
+  font-size: 24px;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.2s ease;
@@ -263,20 +266,6 @@ h2 {
   color: #ccc;
   font-size: 0.95em;
   line-height: 1.6;
-}
-
-/* ===== COMMENTS SECTION ===== */
-.comment-section {
-  margin-top: 25px;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.comment-section h3 {
-  margin-top: 0;
-  color: #fff;
-  font-size: 1.3em;
 }
 
 /* ===== MOBILE ===== */

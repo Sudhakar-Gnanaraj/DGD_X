@@ -97,21 +97,15 @@ function loadComments(gameTitle) {
 
   const script = document.createElement("script");
   script.src = "https://giscus.app/client.js";
-  script.setAttribute("data-repo", "Sudhakar-Gnanaraj/DGD_X");
-  script.setAttribute("data-repo-id", "R_kgDOQSslxg");
-  script.setAttribute("data-category", "General");
+  script.setAttribute("data-repo", "Sudhakar-Gnanaraj/DGD_X"); // ✅ Your repo
+  script.setAttribute("data-repo-id", "R_kgDOQSslxg");         // ✅ From Giscus setup
+  script.setAttribute("data-category", "General");             // ✅ Category
   script.setAttribute("data-category-id", "DIC_kwDOQSslxs4Cxoz-");
   script.setAttribute("data-mapping", "specific");
-  script.setAttribute("data-term", gameTitle);
+  script.setAttribute("data-term", gameTitle);                 // Use game title as thread
   script.setAttribute("data-theme", "dark");
   script.setAttribute("crossorigin", "anonymous");
   script.async = true;
-
-  // After the Giscus iframe loads, scroll back to top of modal
-  script.onload = () => {
-    const modalContent = document.querySelector(".modal-content");
-    modalContent.scrollTop = 0; // reset scroll inside modal
-  };
 
   container.appendChild(script);
 }
