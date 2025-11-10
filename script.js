@@ -54,6 +54,18 @@ document.querySelectorAll(".game-card").forEach(card => {
     currentScreens = game.screenshots;
     currentIndex = 0;
     gameImage.src = currentScreens[currentIndex];
+
+    modal.style.display = "flex";
+    gameTitle.textContent = game.title;
+    gameDescription.textContent = game.description;
+    detailedText.textContent = game.detailed;
+    playButton.onclick = () => window.open(game.link, "_blank");
+    currentScreens = game.screenshots;
+    currentIndex = 0;
+    gameImage.src = currentScreens[currentIndex];
+
+    // 🟣 Load Giscus comments
+    loadComments(game.title);
   });
 });
 
@@ -67,6 +79,25 @@ window.addEventListener("keydown", e => {
   if (e.key === "ArrowRight") nextImage();
   if (e.key === "ArrowLeft") prevImage();
 });
+
+function loadComments(gameTitle) {
+  const container = document.getElementById("giscus-container");
+  container.innerHTML = ""; // Clear previous comments
+
+  const script = document.createElement("script");
+  script.src = "https://giscus.app/client.js";
+  script.setAttribute("data-repo", "sudhakar-g/dgd-games"); // ← your repo
+  script.setAttribute("data-repo-id", "R_kgDOKmExample");   // ← from giscus.app
+  script.setAttribute("data-category", "Comments");         // ← your category
+  script.setAttribute("data-category-id", "DIC_kwDOKmExample4C");
+  script.setAttribute("data-mapping", "specific");
+  script.setAttribute("data-term", gameTitle);
+  script.setAttribute("data-theme", "dark");
+  script.setAttribute("crossorigin", "anonymous");
+  script.async = true;
+
+  container.appendChild(script);
+}
 
 // Carousel arrows
 function nextImage() {

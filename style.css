@@ -92,7 +92,7 @@ h2 {
 /* Game title text */
 .game-card h3 {
   margin-top: 10px;
-  font-size: 1.2em;
+  font-size: 1.em;
   font-weight: 800; /* Bold */
   letter-spacing: 0.5px;
 
