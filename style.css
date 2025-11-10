@@ -1,4 +1,4 @@
-/* Reset & Base styles */
+/* Reset default styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -16,23 +16,25 @@ header {
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center logo + text */
-  gap: 15px;
-  text-align: center;
+  justify-content: center;
+  position: relative;
 }
 
+/* Logo stays on the far left */
 .logo {
-  height: 50px;
+  height: 30px;
   width: auto;
-  max-width: 70px;
   object-fit: contain;
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-/* Title */
 header h1 {
-  font-size: 1.8em;
-  font-weight: bold;
   margin: 0;
+  font-size: 1.8em;
+  text-align: center;
 }
 
 /* Section Titles */
@@ -42,70 +44,33 @@ h2 {
   display: inline-block;
   padding: 5px 15px;
   border-radius: 5px;
-  margin: 25px 0 10px 25px;
-  font-size: 1.1em;
+  margin-left: 25px;
 }
 
-/* Link layout */
+/* Layout of image links */
 .link-row {
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  justify-content: space-evenly; /* evenly spaced across width */
+  align-items: center;
   flex-wrap: wrap;
-  margin: 20px 0 40px 0;
+  gap: 30px;
+  margin: 20px auto;
+  max-width: 1000px;
 }
 
 .link-row a {
   text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.2s ease;
 }
 
 .link-row a:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .link-row img {
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 5px;
   background-color: black;
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .logo {
-    height: 40px;
-  }
-
-  header h1 {
-    font-size: 1.4em;
-  }
-
-  .link-row img {
-    width: 120px;
-    height: 120px;
-  }
-}
-
-@media (max-width: 480px) {
-  h2 {
-    margin-left: 15px;
-    font-size: 1em;
-  }
-
-  .link-row {
-    gap: 20px;
-  }
-
-  .link-row img {
-    width: 100px;
-    height: 100px;
-  }
 }
