@@ -86,10 +86,10 @@ function loadComments(gameTitle) {
 
   const script = document.createElement("script");
   script.src = "https://giscus.app/client.js";
-  script.setAttribute("data-repo", "sudhakar-g/dgd-games"); // ← your repo
-  script.setAttribute("data-repo-id", "R_kgDOKmExample");   // ← from giscus.app
-  script.setAttribute("data-category", "Comments");         // ← your category
-  script.setAttribute("data-category-id", "DIC_kwDOKmExample4C");
+  script.setAttribute("data-repo", "Sudhakar-Gnanaraj/DGD_X"); // ← your repo
+  script.setAttribute("data-repo-id", "R_kgDOQSslxg");   // ← from giscus.app
+  script.setAttribute("data-category", "General");         // ← your category
+  script.setAttribute("data-category-id", "DIC_kwDOQSslxs4Cxoz-");
   script.setAttribute("data-mapping", "specific");
   script.setAttribute("data-term", gameTitle);
   script.setAttribute("data-theme", "dark");
