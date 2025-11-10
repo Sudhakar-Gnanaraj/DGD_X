@@ -19,15 +19,15 @@
     <section>
       <h2>Sudhakar</h2>
       <div class="link-row">
-        <a href="https://sudhakar-g.itch.io/pong-casualism" target="_blank">
+        <div class="game-card" data-game="pong">
           <img src="images/pong.png" alt="Sudhakar's pong game" />
-        </a>
-        <a href="https://sudhakar-g.itch.io/fireworks-across-time" target="_blank">
+        </div>
+        <div class="game-card" data-game="diwali">
           <img src="images/Diwali.png" alt="Sudhakar's diwali game" />
-        </a>
-        <a href="https://example.com/link3" target="_blank">
+        </div>
+        <div class="game-card" data-game="placeholder1">
           <img src="images/Placeholder.png" alt="Placeholder 1" />
-        </a>
+        </div>
       </div>
     </section>
 
@@ -35,33 +35,45 @@
     <section>
       <h2>Suneha</h2>
       <div class="link-row">
-        <a href="https://example.com/link4" target="_blank">
+        <div class="game-card" data-game="placeholder2">
           <img src="images/Placeholder.png" alt="Placeholder 2" />
-        </a>
-        <a href="https://example.com/link5" target="_blank">
+        </div>
+        <div class="game-card" data-game="placeholder3">
           <img src="images/Placeholder.png" alt="Placeholder 3" />
-        </a>
-        <a href="https://example.com/link6" target="_blank">
+        </div>
+        <div class="game-card" data-game="placeholder4">
           <img src="images/Placeholder.png" alt="Placeholder 4" />
-        </a>
-      </div>
-    </section>
-
-    <!-- Section 3 -->
-    <section>
-      <h2>Anshul</h2>
-      <div class="link-row">
-        <a href="https://example.com/link7" target="_blank">
-          <img src="images/Placeholder.png" alt="Placeholder 5" />
-        </a>
-        <a href="https://example.com/link8" target="_blank">
-          <img src="images/Placeholder.png" alt="Placeholder 6" />
-        </a>
-        <a href="https://example.com/link9" target="_blank">
-          <img src="images/Placeholder.png" alt="Placeholder 7" />
-        </a>
+        </div>
       </div>
     </section>
   </main>
+
+  <!-- ===== MODAL POPUP ===== -->
+  <div id="gameModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <div class="modal-header">
+        <div class="text-content">
+          <h2 id="gameTitle"></h2>
+          <p id="gameDescription"></p>
+        </div>
+        <button id="playButton" class="play-btn">Play</button>
+      </div>
+
+      <div class="carousel">
+        <button class="arrow left">&#10094;</button>
+        <img id="gameImage" src="" alt="Game screenshot" />
+        <button class="arrow right">&#10095;</button>
+      </div>
+
+      <div class="detailed-description">
+        <h3>About the Game</h3>
+        <p id="detailedText"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
