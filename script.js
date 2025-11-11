@@ -18,7 +18,7 @@ const games = {
     title: "Placeholder Game",
     link: "https://example.com/link3",
     description: "A sample game entry for demonstration.",
-    detailed: "This placeholder game is used for layout testing. You can replace this entry with any real game and fill in title, link, and descriptions.",
+    detailed: "This placeholder game is used for layout testing.",
     screenshots: ["images/Placeholder.png"]
   }
 };
